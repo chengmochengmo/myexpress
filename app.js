@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/myapp',{useMongoClient:true})
+mongoose.connect('mongodb://localhost/myexpress',{useMongoClient:true})
 
 var indexRouter = require('./routes/index.js');
 var adminRouter = require('./routes/admin.js');
