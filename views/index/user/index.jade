@@ -1,0 +1,32 @@
+extends ../layout
+block head
+    link(rel='stylesheet', href='/index/css/user/index.css')
+
+block content
+    .top
+        .thumb
+            img(src=userinfo.thumb?'/'+userinfo.thumb:'/public/index/images/me.png' width='100%')
+        .nickname= userinfo.nickname?userinfo.nickname:'匿名用户'
+    .list
+        a.item(href='/index/user/edit')
+            .icon
+                img(src='/public/index/images/index.png' width='100%')
+            .text 完善资料
+            .icon_right
+                img(src='/public/index/images/right.png' width='100%')
+        a.item(href='/index/user/coinslogs')
+            .icon
+                img(src='/public/index/images/me.png' width='100%')
+            .text= '金币数量'+userinfo.coins
+            .icon_right
+                img(src='/public/index/images/right.png' width='100%')
+        .item
+            .icon
+                img(src='/public/index/images/forum.png' width='100%')
+            .text 退出登录
+            .icon_right
+                img(src='/public/index/images/right.png' width='100%')
+
+    include ../nav
+    +nav(1)
+block script

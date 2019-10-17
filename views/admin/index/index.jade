@@ -1,0 +1,358 @@
+doctype html
+html(lang='zh-cn', dir='ltr')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title 管理后台
+        link(type='text/css', href='/util/assets/css/vendor-morris.css', rel='stylesheet')
+        link(type='text/css', href='/util/assets/css/vendor-bootstrap-datepicker.css', rel='stylesheet')
+        // Prevent the demo from appearing in search engines
+        meta(name='robots', content='noindex')
+        // App CSS
+        link(type='text/css', href='/util/assets/css/app.css', rel='stylesheet')
+        link(type='text/css', href='/util/assets/css/app.rtl.css', rel='stylesheet')
+        // Simplebar
+        link(type='text/css', href='/util/assets/vendor/simplebar.css', rel='stylesheet')
+    body
+        .mdk-drawer-layout.js-mdk-drawer-layout(data-fullbleed='', data-push='', data-responsive-width='992px', data-has-scrolling-region='')
+            .mdk-drawer-layout__content
+                // header-layout
+                .mdk-header-layout.js-mdk-header-layout.mdk-header--fixed.mdk-header-layout__content--scrollable
+                    // header
+                    .mdk-header.js-mdk-header.bg-primary(data-fixed='')
+                        .mdk-header__content
+                            nav.navbar.navbar-expand-md.bg-primary.navbar-dark.d-flex-none
+                                button.btn.btn-link.text-white.pl-0(type='button', data-toggle='sidebar')
+                                    i.material-icons.align-middle.md-36 short_text
+                                #title.page-title.m-0 Welcome
+                                #mainNavbar.collapse.navbar-collapse
+                                    ul.navbar-nav.ml-auto.align-items-center
+                                        li.nav-item.nav-link
+                                            .form-group.m-0
+                                                .input-group.input-group--inline
+                                                    .input-group-addon
+                                                        i.material-icons search
+                                                    input.form-control(type='text', name='search', placeholder='Search app..')
+                                        li.nav-item.dropdown.nav-language.d-flex.align-items-center
+                                            a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='false')
+                                                | EN
+                                            .dropdown-menu.dropdown-menu-right
+                                                ul.list-unstyled
+                                                    li
+                                                        a.dropdown-item.active(href='account.html')
+                                                            img(src='http://flags.fmcdn.net/data/flags/w1160/us.png', style='width: 25px; vertical-align: middle', alt='English')
+                                                            |  English
+                                                    li
+                                                        a.dropdown-item(href='account.html')
+                                                            img(src='http://flags.fmcdn.net/data/flags/w1160/fr.png', style='width: 25px; vertical-align: middle', alt='French')
+                                                            |  French
+                                                    li
+                                                        a.dropdown-item(href='account.html')
+                                                            img(src='http://flags.fmcdn.net/data/flags/w1160/de.png', style='width: 25px; vertical-align: middle', alt='English')
+                                                            |  German
+                                        li#navbarNotifications.nav-item.dropdown.notifications.d-flex.align-self-center.align-items-center
+                                            a.nav-link.dropdown-toggle.notifications--active(href='#', data-toggle='dropdown', aria-expanded='false')
+                                                i.material-icons.align-middle notifications
+                                            #notificationsDropdown.dropdown-menu.dropdown-menu-right(aria-labelledby='notificationsDropdown')
+                                                ul#notifications-ul.nav.nav-tabs-notifications.d-flex.px-0(role='tablist')
+                                                    li.nav-item
+                                                        a#notifications-tab.nav-link.active(data-toggle='tab', href='#notifications', role='tab', aria-controls='notifications', aria-selected='true') Notifications
+                                                    li.nav-item
+                                                        a#alerts-tab.nav-link(data-toggle='tab', href='#alerts', role='tab', aria-controls='alerts', aria-selected='false') Alerts
+                                                    li.nav-item
+                                                        a#messages-tab.nav-link(data-toggle='tab', href='#messages', role='tab', aria-controls='messages', aria-selected='false') Messages
+                                                #notifications-tabs.tab-content
+                                                    #notifications.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='notifications-tab')
+                                                        ul.list-group.list-group-flush
+                                                            li.list-group-item
+                                                                .w-100
+                                                                    a(href='#') john
+                                                                    |  received a new quote
+                                                                .w-100.text-muted 4 secs ago
+                                                            li.list-group-item
+                                                                .w-100
+                                                                    a(href='#') karen
+                                                                    |  received a new quote
+                                                                .w-100.text-muted 25 mins ago
+                                                            li.list-group-item
+                                                                .w-100
+                                                                    a(href='#') jim
+                                                                    |  received a new quote
+                                                                .w-100.text-muted 7 hrs ago
+                                                            li.list-group-item.text-right
+                                                                a(href='#')
+                                                                    span.align-middle View All
+                                                                    i.material-icons.md-18.align-middle arrow_forward
+                                                    #alerts.tab-pane.fade(role='tabpanel', aria-labelledby='alerts-tab')
+                                                        ul.list-group.list-group-flush
+                                                            li.list-group-item
+                                                                .media.align-items-center
+                                                                    i.material-icons.align-middle.mr-2.text-warning
+                                                                        | info_outline
+                                                                    .media-body
+                                                                        .w-100
+                                                                            a(href='profile.html') john
+                                                                            |  received a new
+                                                                            a(href='#') quote
+                                                                        .w-100.text-muted 4 secs ago
+                                                            li.list-group-item
+                                                                .media.align-items-center
+                                                                    i.material-icons.align-middle.mr-2.text-success
+                                                                        | check_circle
+                                                                    .media-body
+                                                                        .w-100
+                                                                            a(href='profile.html') karen
+                                                                            |  completed a
+                                                                            a(href='#') task
+                                                                        .w-100.text-muted 25 mins ago
+                                                            li.list-group-item
+                                                                .media.align-items-center
+                                                                    i.material-icons.align-middle.mr-2.text-danger
+                                                                        | warning
+                                                                    .media-body
+                                                                        .w-100
+                                                                            a(href='profile.html') jim
+                                                                            |  removed a
+                                                                            a(href='#') task
+                                                                        .w-100.text-muted 7 hrs ago
+                                                            li.list-group-item.text-right
+                                                                a(href='#')
+                                                                    span.align-middle View All
+                                                                    i.material-icons.md-18.align-middle arrow_forward
+                                                    #messages.tab-pane.fade(role='tabpanel', aria-labelledby='messages-tab')
+                                                        ul.list-group.list-group-flush
+                                                            li.list-group-item
+                                                                .media.align-items-center
+                                                                    a(href='profile.html')
+                                                                        img.img-fluid.rounded-circle.mr-2(src='/util/assets/images/avatars/person-1.jpg', width='35', alt='')
+                                                                    .media-body
+                                                                        .w-100 I started that project we talked...
+                                                                        .w-100.text-muted 4 secs ago
+                                                            li.list-group-item
+                                                                .media.align-items-center
+                                                                    a(href='profile.html')
+                                                                        img.img-fluid.rounded-circle.mr-2(src='/util/assets/images/avatars/person-11.jpg', width='35', alt='')
+                                                                    .media-body
+                                                                        .w-100 Can we arrange a meeting?...
+                                                                        .w-100.text-muted 25 mins ago
+                                                            li.list-group-item
+                                                                .media.align-items-center
+                                                                    a(href='profile.html')
+                                                                        img.img-fluid.rounded-circle.mr-2(src='/util/assets/images/avatars/person-12.jpg', width='35', alt='')
+                                                                    .media-body
+                                                                        .w-100 We need to fix some bugs...
+                                                                        .w-100.text-muted 7 hrs ago
+                                                            li.list-group-item.text-right
+                                                                a(href='#')
+                                                                    span.align-middle View All
+                                                                    i.material-icons.md-18.align-middle arrow_forward
+                                        li.nav-item.nav-divider
+                                        li.nav-item
+                                            a.nav-link.dropdown-toggle.dropdown-clear-caret(href='#', data-toggle='sidebar', data-target='#user-drawer')
+                                                | Frontted
+                    // content
+                    iframe#iframe(src='/admin/index/welcome' style='width:100%;height:98%' name="main")
+            // // END drawer-layout__content
+            // drawer
+            #default-drawer.mdk-drawer.js-mdk-drawer
+                .mdk-drawer__content
+                    .mdk-drawer__inner(data-simplebar='', data-simplebar-force-enabled='true')
+                        nav.drawer.drawer--dark
+                            .drawer-spacer
+                                .media.align-items-center
+                                    a.drawer-brand-circle.mr-2(href='/admin/index/index') hi
+                                    .media-body
+                                        a.h5.m-0.text-link(href='/admin/index/index') 管理后台
+                            // HEADING
+                            .py-2.drawer-heading
+                                | Dashboards
+                            // MENU
+                            ul#dasboardMenu.drawer-menu(data-children='.drawer-submenu')
+                                li.drawer-menu-item
+                                    a(href='/admin/slide/lists' target='main')
+                                        i.material-icons pages
+                                        span.drawer-menu-text  轮播图管理
+                                li.drawer-menu-item
+                                    a(href='/admin/cate/lists' target='main')
+                                        i.material-icons store
+                                        span.drawer-menu-text  分类管理
+                                li.drawer-menu-item
+                                    a(href='/admin/goods/lists' target='main')
+                                        i.material-icons business
+                                        span.drawer-menu-text  商品管理
+                                li.drawer-menu-item
+                                    a(href='/admin/user/lists' target='main')
+                                        i.material-icons poll
+                                        span.drawer-menu-text  用户列表
+                                li.drawer-menu-item
+                                    a(href='/admin/count/lists' target='main')
+                                        i.material-icons dns
+                                        span.drawer-menu-text  后台登录统计
+                                        //span.badge.badge-pill.badge-success.ml-1 4
+                            // HEADING
+                            .py-2.drawer-heading
+                                | Components
+                            // MENU
+                            ul#mainMenu.drawer-menu(data-children='.drawer-submenu')
+                                li.drawer-menu-item.drawer-submenu
+                                    a.collapsed(data-toggle='collapse', data-parent='#mainMenu', href='#', data-target='#uiComponentsMenu', aria-controls='uiComponentsMenu', aria-expanded='false')
+                                        i.material-icons library_books
+                                        span.drawer-menu-text  UI Components
+                                    ul#uiComponentsMenu.collapse
+                                        li.drawer-menu-item
+                                            a(href='ui-buttons.html') Buttons
+                                        li.drawer-menu-item
+                                            a(href='ui-colors.html') Colors
+                                        li.drawer-menu-item
+                                            a(href='ui-grid.html') Grid
+                                        li.drawer-menu-item
+                                            a(href='ui-icons.html') Icons
+                                        li.drawer-menu-item
+                                            a(href='ui-typography.html') Typography
+                                        li.drawer-menu-item
+                                            a(href='ui-drag-drop.html') Drag & Drop
+                                        li.drawer-menu-item
+                                            a(href='ui-loaders.html') Loaders
+                                li.drawer-menu-item.drawer-submenu
+                                    a.collapsed(data-toggle='collapse', data-parent='#mainMenu', href='#', data-target='#formsMenu', aria-controls='formsMenu', aria-expanded='false')
+                                        i.material-icons text_format
+                                        span.drawer-menu-text  Forms
+                                    ul#formsMenu.collapse
+                                        li.drawer-menu-item
+                                            a(href='form-controls.html') Form Controls
+                                        li.drawer-menu-item
+                                            a(href='checkboxes-radios.html') Checkboxes & Radios
+                                        li.drawer-menu-item
+                                            a(href='switches-toggles.html') Switches & Toggles
+                                        li.drawer-menu-item
+                                            a(href='form-layout.html') Layout Variations
+                                        li.drawer-menu-item
+                                            a(href='validation.html') Validation
+                                        li.drawer-menu-item
+                                            a(href='custom-forms.html') Custom Forms
+                                        li.drawer-menu-item
+                                            a(href='text-editor.html') Text Editor
+                                        li.drawer-menu-item
+                                            a(href='datepicker.html') Datepicker
+                                li.drawer-menu-item
+                                    a(href='ui-tables.html')
+                                        i.material-icons tab
+                                        span.drawer-menu-text  Tables
+                                li.drawer-menu-item
+                                    a(href='ui-notifications.html')
+                                        i.material-icons notifications
+                                        span.drawer-menu-text  Notifications
+                                li.drawer-menu-item
+                                    a(href='charts.html')
+                                        i.material-icons equalizer
+                                        span.drawer-menu-text  Charts
+                                li.drawer-menu-item
+                                    a(href='events-calendar.html')
+                                        i.material-icons event_available
+                                        span.drawer-menu-text  Calendar
+                                li.drawer-menu-item
+                                    a(href='maps.html')
+                                        i.material-icons pin_drop
+                                        span.drawer-menu-text  Maps
+                            // HEADING
+                            .py-2.drawer-heading
+                                | Pages
+                            // MENU
+                            ul#mainMenu.drawer-menu(data-children='.drawer-submenu')
+                                li.drawer-menu-item
+                                    a(href='account.html')
+                                        i.material-icons edit
+                                        span.drawer-menu-text Edit Account
+                                li.drawer-menu-item
+                                    a(href='login.html')
+                                        i.material-icons lock
+                                        span.drawer-menu-text Login
+                                li.drawer-menu-item
+                                    a(href='signup.html')
+                                        i.material-icons account_circle
+                                        span.drawer-menu-text Sign Up
+                                li.drawer-menu-item
+                                    a(href='forgot-password.html')
+                                        i.material-icons help
+                                        span.drawer-menu-text Forgot Password
+            // // END drawer
+            // drawer
+            #user-drawer.mdk-drawer.js-mdk-drawer(data-position='right', data-align='end')
+                .mdk-drawer__content
+                    .mdk-drawer__inner(data-simplebar='', data-simplebar-force-enabled='true')
+                        nav.drawer.drawer--light
+                            .drawer-spacer.drawer-spacer-border
+                                .media.align-items-center
+                                    .media-body
+                                        a.h5.m-0(href='#') Frontted
+                                        div Account Manager
+                            .drawer-spacer.bg-body-bg
+                                .d-flex.justify-content-between.mb-2
+                                    p.h6.text-gray.m-0
+                                        i.material-icons.align-middle.md-18.text-primary monetization_on
+                                        |  Balance
+                                    span $21,011
+                                .d-flex.justify-content-between
+                                    p.h6.text-gray.m-0
+                                        i.material-icons.align-middle.md-18.text-primary shopping_cart
+                                        |  Sales
+                                    span 142
+                            // MENU
+                            ul#userMenu.drawer-menu(data-children='.drawer-submenu')
+                                li.drawer-menu-item
+                                    a(href='account.html')
+                                        i.material-icons lock
+                                        span.drawer-menu-text  Account
+                                li.drawer-menu-item
+                                    a(href='profile.html')
+                                        i.material-icons account_circle
+                                        span.drawer-menu-text  Profile
+                                li.drawer-menu-item
+                                    a(href='login.html')
+                                        i.material-icons exit_to_app
+                                        span.drawer-menu-text  Logout
+            // // END drawer
+            // // END drawer-layout
+            // jQuery
+            script(src='/util/assets/vendor/jquery.min.js')
+            // Bootstrap
+            script(src='/util/assets/vendor/popper.js')
+            script(src='/util/assets/vendor/bootstrap.min.js')
+            // Simplebar
+            // Used for adding a custom scrollbar to the drawer
+            script(src='/util/assets/vendor/simplebar.js')
+            // Vendor
+            script(src='/util/assets/vendor/moment.min.js')
+            // APP
+            script(src='/util/assets/js/color_variables.js')
+            script(src='/util/assets/js/app.js')
+            script(src='/util/assets/vendor/dom-factory.js')
+            // DOM Factory
+            script(src='/util/assets/vendor/material-design-kit.js')
+            // MDK
+            script.
+                (function() {
+                    'use strict';
+                    // Self Initialize DOM Factory Components
+                    domFactory.handler.autoInit()
+                    // Connect button(s) to drawer(s)
+                    var sidebarToggle = document.querySelectorAll('[data-toggle="sidebar"]')
+                    sidebarToggle.forEach(function(toggle) {
+                        toggle.addEventListener('click', function(e) {
+                            var selector = e.currentTarget.getAttribute('data-target') || '#default-drawer'
+                            var drawer = document.querySelector(selector)
+                            if (drawer) {
+                                if (selector == '#default-drawer') {
+                                    $('.container-fluid').toggleClass('container--max');
+                                }
+                                drawer.mdkDrawer.toggle();
+                            }
+                        })
+                    })
+                })()
+                $(".drawer-menu-item").on("click",function () {
+                    $("#title").text($(this).find("a").find("span").text())
+                    $(".drawer-menu-item").removeClass("active")
+                    $(this).addClass("active")
+                })

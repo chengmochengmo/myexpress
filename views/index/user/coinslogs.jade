@@ -1,0 +1,17 @@
+extends ../layout
+block head
+    link(rel='stylesheet', href='/index/css/user/coinslogs.css')
+
+block content
+    .list
+        .item
+            .text 时间
+            .coins 收支情况
+            .remarks 备注
+        each item,index in coinslogs
+            .item
+                .text= item.time
+                .coins= item.coins
+                .remarks= item.remarks
+
+block script

@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    div.container
+        form.form-horizontal(action="/admin/goods/edit", method="post", enctype="multipart/form-data")
+            input(type="hidden", name="id", value=id)
+            input(type="hidden", name="goodspic", value=info.goodspic)
+            div.form-group
+                div.col-sm-2.control-label 所属分类
+                div.col-sm-10
+                    select.form-control(name='cateid')
+                        each  item,index in catelists
+                            option(value=item._id, selected=info.cateid==item._id?true:false)= item.name
+            div.form-group
+                div.col-sm-2.control-label 商品图
+                div.col-sm-10
+                    input(type="file", name="pic")
+            //img(src=info.thumb alt="暂未上传头像" width="40px")
+            div.form-group
+                div.col-sm-2.control-label 商品名
+                div.col-sm-10
+                    input.form-control(type="text", name="name", placeholder="请输入" value=info.name)
+            div.form-group
+                div.col-sm-2.control-label 商品描述
+                div.col-sm-10
+                    input.form-control(type="text", name="describe", placeholder="请输入" value=info.describe)
+            div.form-group
+                div.col-sm-2.control-label 排序
+                div.col-sm-10
+                    input.form-control(type="number", name="sort", placeholder="请输入" value=info.sort)
+            div.form-group
+                div.col-sm-2.control-label 价格
+                div.col-sm-10
+                    input.form-control(type="number", name="price", placeholder="请输入" value=info.price)
+            div.form-group
+                div.col-sm-2.control-label 详情
+                div.col-sm-10
+                    input.form-control(type="text", name="detail", placeholder="请输入" value=info.detail)
+            div.form-group
+                div.col-sm-offset-2.col-sm-10
+                    input.btn.btn-success(type="submit" value="确认")

@@ -1,0 +1,56 @@
+extends ../layout
+block head
+    link(rel='stylesheet', href='/index/css/user/reg.css')
+
+block content
+    .container
+        form.form-horizontal(method='post', action='/index/user/edit', enctype="multipart/form-data")
+            input(type="hidden", name="id", value=id)
+            input(type="hidden", name="thumb", value=info.thumb)
+            .form-group
+                div.col-sm-2.control-label 头像
+                div.col-sm-10
+                    input(type="file", name="pic")
+            .form-group
+                label.col-sm-2.control-label 昵称
+                .col-sm-10
+                    input.form-control(type='text', name='nickname', placeholder='请输入', value=info.nickname)
+            .form-group
+                label.col-sm-2.control-label 年龄
+                .col-sm-10
+                    input.form-control(type='number', name='age', placeholder='请输入', value=info.age)
+            .form-group
+                label.col-sm-2.control-label 性别
+                .col-sm-10
+                    .radio.radio-inline
+                        label
+                            input#optionsRadios1(type='radio', name='sex', value='男', checked=info.sex=='男'?true:false)
+                            | 男
+                    .radio.radio-inline
+                        label
+                            input#optionsRadios2(type='radio', name='sex', value='女', checked=info.sex=='女'?true:false)
+                            | 女
+            .form-group
+                label.col-sm-2.control-label 电话
+                .col-sm-10
+                    input.form-control(type='text', name='tel', placeholder='请输入', value=info.tel)
+            .form-group
+                label.col-sm-2.control-label 地址
+                .col-sm-10
+                    input.form-control(type='text', name='address', placeholder='请输入', value=info.address)
+            button#btu.btn.btn-primary.btn-lg(type='submit')
+                | 确定
+
+block script
+    script.
+        $("input[name='confirmpassword']").on("blur",function () {
+            if ($("input[name='confirmpassword']").val()!==$("input[name='password']").val()){
+                alert("两次密码输入不一致")
+            }
+        })
+        $("#btu").on('click',function () {
+            if ($("input[name='confirmpassword']").val() !== $("input[name='password']").val()) {
+                alert("两次密码输入不一致")
+                return false
+            }
+        })

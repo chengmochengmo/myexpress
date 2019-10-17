@@ -1,0 +1,38 @@
+extends ../layout
+block head
+    link(rel='stylesheet', href='/util/swiper.min.css')
+    link(rel='stylesheet', href='/index/css/index/index.css')
+    script(src='/util/swiper.min.js')
+
+block content
+    .swiper-container
+        .swiper-wrapper
+            each item,index in slide_list
+                .swiper-slide
+                    img(src='/'+item.slidepic, width='100%')
+        .swiper-pagination
+    .cate_list
+        each item,index in cate_list
+            .item
+                .icon
+                    img(src='/'+item.icon, width='100%')
+                .text= item.name
+    .goods_list
+        each item,index in goods_list
+            .item
+                .left_img
+                    img(src='/'+item.goodspic, width='100%')
+                .right
+                    .name= item.name
+                    .describe= item.describe
+                    .price= '￥'+item.price
+
+    include ../nav
+    +nav(0)
+block script
+    script.
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            }
+        });

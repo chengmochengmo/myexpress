@@ -1,0 +1,49 @@
+extends ../layout
+block head
+    link(rel='stylesheet', href='/index/css/user/reg.css')
+
+block content
+    .container
+        form.form-horizontal(method='post', action='/index/user/reg')
+            .form-group
+                label.col-sm-2.control-label 账号
+                .col-sm-10
+                    input.form-control(type='text', name='username', placeholder='请输入')
+            .form-group
+                label.col-sm-2.control-label 密码
+                .col-sm-10
+                    input.form-control(type='password', name='password', placeholder='请输入')
+            .form-group
+                label.col-sm-2.control-label 确认密码
+                .col-sm-10
+                    input.form-control(type='password', name='confirmpassword', placeholder='请输入')
+            button#btu.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal')
+                | 注册
+            // Modal
+            #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+                .modal-dialog(role='document')
+                    .modal-content
+                        .modal-header
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                span(aria-hidden='true') ×
+                            h4#myModalLabel.modal-title 注册即表示同意用户协议
+                        .modal-body
+                            | 此为用户协议...注册即赠送1000积分...
+                        .modal-footer
+                            button.btn.btn-default(type='button', data-dismiss='modal') 取消
+                            button.btn.btn-primary(type='submit') 确定
+
+
+block script
+    script.
+        $("input[name='confirmpassword']").on("blur",function () {
+            if ($("input[name='confirmpassword']").val()!==$("input[name='password']").val()){
+                alert("两次密码输入不一致")
+            }
+        })
+        $("#btu").on('click',function () {
+            if ($("input[name='confirmpassword']").val() !== $("input[name='password']").val()) {
+                alert("两次密码输入不一致")
+                return false
+            }
+        })

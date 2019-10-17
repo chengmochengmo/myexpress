@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    div.container
+        a.btn.btn-success(href='/admin/cate/edit', style='margin-bottom:15px;') 新增
+        table.table.table-hover
+            tr.active
+                td 图标
+                td 分类名
+                td 是否首页展示
+                td 描述
+                td 操作
+            each item,key in cate_list
+                tr
+                    td
+                        img(src='/'+item.icon alt="暂未上传头像" width="40px")
+                    td= item.name
+                    td= item.isindexshow==1?'是':'否'
+                    td= item.describe
+                    td
+                        a.btn.btn-success(href='/admin/cate/edit?id='+item.id, style='margin-right:15px;') 修改
+                        a.btn.btn-danger(href='/admin/cate/del?id='+item.id) 删除

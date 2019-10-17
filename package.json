@@ -1,0 +1,24 @@
+{
+  "name": "myapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon app"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "mongoose": "^4.13.18",
+    "morgan": "~1.9.0",
+    "multiparty": "^4.2.1",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-px2rem-plugin": "^0.4.0",
+    "gulp-minify-css": "^1.2.4"
+  }
+}

@@ -1,0 +1,52 @@
+doctype html
+html(lang='zh-cn', dir='ltr')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title Hero
+        // Prevent the demo from appearing in search engines
+        meta(name='robots', content='noindex')
+        // App CSS
+        link(type='text/css', href='/util/assets/css/app.css', rel='stylesheet')
+        link(type='text/css', href='/util/assets/css/app.rtl.css', rel='stylesheet')
+        // Simplebar
+        link(type='text/css', href='/util/assets/vendor/simplebar.css', rel='stylesheet')
+    body
+        .mdk-drawer-layout.js-mdk-drawer-layout(data-fullbleed='', data-push='', data-has-scrolling-region='')
+            .mdk-drawer-layout__content.mdk-header-layout__content--scrollable(style='overflow-y: auto;', data-simplebar='', data-simplebar-force-enabled='true')
+                .container.h-vh.d-flex.justify-content-center.align-items-center.flex-column
+                    .d-flex.justify-content-center.align-items-center.mb-3
+                        a.drawer-brand-circle.mr-2(href='') hi
+                        h2.ml-2.text-bg.mb-0
+                            strong 欢迎登录
+                    .row.w-100.justify-content-center
+                        .card.card-login.mb-3
+                            .card-body
+                                form(action="/admin/login/login", method='post')
+                                    .form-group
+                                        label 用户名
+                                        .input-group.input-group--inline
+                                            .input-group-addon
+                                                i.material-icons account_circle
+                                            input.form-control(type='text', name='username', placeholder='')
+                                    .form-group
+                                        .d-flex
+                                            label 密码
+                                            span.ml-auto
+                                                a(href='') Forgot password?
+                                        .input-group.input-group--inline
+                                            .input-group-addon
+                                                i.material-icons lock_outline
+                                            input.form-control(type='password', name='password')
+                                    .text-center
+                                        button.btn.btn-primary Login
+                    .d-flex.justify-content-center
+                        span.mr-2 Don't have an account?
+                        a(href='') Sign Up
+        script.
+            (function() {
+                'use strict';
+                // Self Initialize DOM Factory Components
+                domFactory.handler.autoInit();
+            });

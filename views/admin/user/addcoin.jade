@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    div.container
+        form.form-horizontal(action="/admin/user/addcoin", method="post")
+            input(type="hidden", name="id", value=userinfo.id)
+            div.form-group
+                div.col-sm-2.control-label= userinfo.nickname
+            div.form-group
+                div.col-sm-2.control-label 充值金币数量
+                div.col-sm-10
+                    input.form-control(type="number", name="coins", placeholder="请输入")
+            div.form-group
+                div.col-sm-2.control-label 备注
+                div.col-sm-10
+                    input.form-control(type="text", name="remarks", placeholder="请输入")
+            div.form-group
+                div.col-sm-offset-2.col-sm-10
+                    input.btn.btn-success(type="submit" value="确认")

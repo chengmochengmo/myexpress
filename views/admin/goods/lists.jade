@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    div.container
+        a.btn.btn-success(href='/admin/goods/edit', style='margin-bottom:15px;') 新增
+        table.table.table-hover
+            tr.active
+                td 商品图
+                td 商品名
+                td 商品描述
+                td 价格
+                td 所属分类
+                td 操作
+            each item,key in goods_list
+                tr
+                    td
+                        img(src='/'+item.goodspic alt="暂未上传头像" width="40px")
+                    td= item.name
+                    td= item.describe
+                    td= item.price
+                    td= item.cateid.name
+                    td
+                        a.btn.btn-success(href='/admin/goods/edit?id='+item.id, style='margin-right:15px;') 修改
+                        a.btn.btn-danger(href='/admin/goods/del?id='+item.id) 删除

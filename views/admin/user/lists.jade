@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+    div.container
+        table.table.table-hover
+            tr.active
+                td 头像
+                td 姓名
+                td 性别
+                td 电话
+                td 年龄
+                td 地址
+                td 金币
+                td 操作
+            each item,key in user_list
+                tr
+                    td
+                        img(src='/'+item.thumb alt="暂未上传头像" width="40px")
+                    td= item.nickname
+                    td= item.sex
+                    td= item.tel
+                    td= item.age
+                    td= item.address
+                    td= item.coins
+                    td
+                        //a.btn.btn-danger(href='/admin/user/del?id='+item.id) 删除
+                        a.btn.btn-success(href='/admin/user/addcoin?id='+item.id) 添加积分

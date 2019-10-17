@@ -1,0 +1,10 @@
+mixin nav(show_status)
+    .index_nav
+        a.item(href='/')
+            .icon
+                img(src='/public/index/images/index'+(show_status==0?'_':'')+'.png' width='100%')
+            .text 首页
+        a.item(href='/index/user/index')
+            .icon
+                img(src='/public/index/images/me'+(show_status==1?'_':'')+'.png' width='100%')
+            .text 我的

@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    div.container
+        form.form-horizontal(action="/admin/slide/edit", method="post", enctype="multipart/form-data")
+            input(type="hidden", name="id", value=id)
+            input(type="hidden", name="slidepic", value=info.slidepic)
+            div.form-group
+                div.col-sm-2.control-label 标题
+                div.col-sm-10
+                    input.form-control(type="text", name="name", placeholder="请输入" value=info.name)
+            div.form-group
+                div.col-sm-2.control-label 轮播图
+                div.col-sm-10
+                    input(type="file", name="pic")
+            //img(src=info.thumb alt="暂未上传头像" width="40px")
+            div.form-group
+                div.col-sm-offset-2.col-sm-10
+                    input.btn.btn-success(type="submit" value="确认")

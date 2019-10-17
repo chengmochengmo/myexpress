@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    div.container
+        table.table.table-hover
+            tr.active
+                td 账号
+                td 登录时间
+            each item,key in lists
+                tr
+                    td= item.username
+                    td= item.time
